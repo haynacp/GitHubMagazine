@@ -28,13 +28,10 @@ class RepositoriesIntegrationTests: XCTestCase {
   }
   
   func testFetchRepositories() {
-    // Arrange
     let expectation = XCTestExpectation(description: "Repositories fetched successfully")
     
-    // Act
     viewModel.fetchRepositories()
     
-    // Assert
     viewModel.repositoriesObservable
       .skip(1)
       .subscribe(onNext: { repositories in

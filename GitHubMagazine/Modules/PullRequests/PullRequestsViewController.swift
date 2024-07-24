@@ -17,15 +17,14 @@ class PullRequestsViewController: UIViewController {
   private let errorLabel = UILabel()
   private let noPullRequestsLabel = UILabel()
   
-  var repositoryName: String? // Nova propriedade para o nome do repositório
-  var pullsUrl: String? // Propriedade para a URL dos pull requests
+  var repositoryName: String?
+  var pullsUrl: String?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     setupNavigationBar()
     
-    // Definir o título da tela como o nome do repositório
     if let repositoryName = repositoryName {
       title = repositoryName
     }
@@ -33,7 +32,6 @@ class PullRequestsViewController: UIViewController {
     setupView()
     setupBindings()
     
-    // Passar a URL dos pull requests para o ViewModel
     if let pullsUrl = pullsUrl {
       viewModel.fetchPullRequests(from: pullsUrl)
     }
